@@ -1,0 +1,67 @@
+---
+title: "Assignment_2 Lab1"
+output: html_notebook
+---
+
+Assignment 2 Lab1 by Madhvi Jha
+
+Applied Exercise 1
+This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US. The variables are
+
+Private: Public/private indicator</br>
+Apps: Number of applications received</br>
+Accept: Number of applicants accepted</br>
+Enroll: Number of new students enrolled</br>
+Top10perc: New students from top 10% of high school class</br>
+Top25perc: New students from top 25% of high school class</br>
+F.Undergrad: Number of full-time undergraduates</br>
+P.Undergrad: Number of part-time undergraduates</br>
+Outstate: Out-of-state tuition</br
+Room.Board: Room and board costs</br>
+Books: Estimated book costs</br>
+Personal: Estimated personal spending</br>
+PhD: Percent of faculty with Ph.D.'s</br>
+Terminal: Percent of faculty with terminal degree</br>
+S.F.Ratio: Student/faculty ratio</br>
+perc.alumni: Percent of alumni who donate</br>
+Expend: Instructional expenditure per student<br>
+Grad.Rate: Graduation rate</br>
+Before reading the data into R, it can be viewed in Excel or a text editor.
+
+**Part 1**</br>
+Use the read.csv() function to read the data into R.</br> Call the loaded data college. Make sure that you have the directory set to the correct location for the data.
+```{r}
+# install.packages("ISLR")
+library(ISLR)
+library(MASS)
+# college = read.csv("file name")
+# Instead of running above command we are getting from package
+data("College")
+college = na.omit(College)
+```
+
+**Part 2**</br>
+Look at the data using the fix() function. You should notice that the first column is just the name of each university. We don't really want R to treat this as data. However, it may be handy to have these names for later. Try the following commands:
+
+**It is not needed since we are not loading from csv**
+However, we could have run below code if done from csv
+</br>
+rownames(college) = college[, 1]</br>
+fix(college)
+</br>
+```{r}
+head(college)
+```
+
+**Part 3.1**</br>
+Use the summary() function to produce a numerical summary of the variables in the data set.
+```{r}
+summary(college)
+
+```
+**Part 3.2**</br>
+Use the pairs() function to produce a scatterplot matrix of the first ten columns or variables of the data. Recall that you can reference the first ten columns of a matrix A using A[, 1:10].
+```{r}
+pairs(college[,1:10])
+```
+
